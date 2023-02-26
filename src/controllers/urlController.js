@@ -4,7 +4,7 @@ const{isValidRequestBody,isValid}=require('../validations/validation')
 const shortid = require("shortid");
 const redis = require("redis")
 const{ promisify }=require("util")
-//const axios = require('axios')
+
 //===========================================================================================================//
 
 //1. Connect to the redis server
@@ -38,8 +38,8 @@ const generateUrl = async function (req, res) {
     }
 
     if (!isValid(longUrl)) {
-        res.status(400).send({ status: false, message: `longUrl is required` })
-        return
+        return res.status(400).send({ status: false, message: `longUrl is required` })
+       
     }
     //check long url is valid or not-http is present or not
     if (!isUrlValid(longUrl)) {
@@ -56,17 +56,7 @@ const generateUrl = async function (req, res) {
             return res.status(200).send({ satus: true, data: url})      
         }
         
-   // let option = {
-    //     method: 'get',
-    //     url: longUrl
-    // }
-    // let urlValidate = await axios(option)
-    //     .then(() => longUrl)    
-    //     .catch(() => null)     
-
-    // if (!urlValidate) { 
-    //     return res.status(400).send({ status: false, message: `This Link ${longUrl} is not Valid URL.` }) 
-    // }
+   
         else {
             const urlCode = shortid.generate()
             let shortUrl = `${req.protocol}://${req.headers.host}/` + urlCode
@@ -103,7 +93,7 @@ const redirectToLongUrl = async function (req, res) {
                 return res.status(404).send({ status: false, msg: "No URL Found" })
             }
             else {
-                await SET_ASYNC(`${urlCode}`, JSON.stringify(findUrl),"EX",86400)
+                await SET_ASYNC(`${urlCode}`, JSON.stringify(findUrl),"EX",30)
                 res.status(302).redirect(findUrl.longUrl)
             }
         }

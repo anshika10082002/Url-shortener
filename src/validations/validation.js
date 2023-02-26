@@ -17,3 +17,23 @@ module.exports={isValidRequestBody,isValid}
 
 
 
+
+
+
+
+
+
+
+
+//const axios = require('axios')
+// let option = {
+    //     method: 'get',
+    //     url: longUrl
+    // }
+    // let urlValidate = await axios(option)
+    //     .then(() => longUrl)    
+    //     .catch(() => null)     
+
+    // if (!urlValidate) { 
+    //     return res.status(400).send({ status: false, message: `This Link ${longUrl} is not Valid URL.` }) 
+    // }
