@@ -9,7 +9,7 @@
 
 *The shortened URL is nearly one-fifth the size of the actual URL.*
 
-- Used a tool like Postman to send HTTP requests.
+- Used a tool like **Postman** to send HTTP requests.
 
 ## Installation
 - Install dependencies using command: *npm install*
