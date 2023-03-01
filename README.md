@@ -13,7 +13,8 @@
 
 ## Installation
 - Install dependencies using command: *npm install*
-**Dependencies used in this project**
+
+- **Dependencies used in this project**
 - express
 - mongoose
 - redis
