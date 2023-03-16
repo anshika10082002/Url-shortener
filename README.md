@@ -19,6 +19,7 @@
 - mongoose
 - redis
 - shortid
+- url-validation
 
 ## Use cases
 - To optimise links shared across users
